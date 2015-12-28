@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="AP Receipt.xsl"?>
+<Documents>
+  <Document>
+    <Header>
+      <OrgnDetails>
+        <OrgnName>BAU PALM OIL MILL SDN. BHD.</OrgnName>
+        <OrgnRegNo>469819-X</OrgnRegNo>
+        <Address1>KM 25, Bau-Lundu Road</Address1>
+        <Address2>P.O. Box 181, Bau</Address2>
+        <Address3>94007 Malaysia</Address3>
+        <ContactNo1>082-370425</ContactNo1>
+        <ContactNo2>082-375230</ContactNo2>
+        <FaxNo1>019-8542154</FaxNo1>
+      </OrgnDetails>
+      <ReportOptions>
+        <AccountName>SARATOK PALM OIL SDN. BHD.</AccountName>
+        <AmountDescription>Two Hundred Forty-Nine and Cents Thirty-Two</AmountDescription>
+        <DocRefNo>RECEIPT 00751</DocRefNo>
+        <DocDate>08/01/2015</DocDate>
+        <PaymentTo>GLOBAL GREEN ENGINEERING &amp; SUPPLY SDN. BHD.</PaymentTo>
+        <PaymentDescription>BEING PAYMENT FOR DEBIT NOTE BAPOM/DC/2014/00005</PaymentDescription>
+        <CurrencyCode>MYR</CurrencyCode>
+        <AmountTotal>4950</AmountTotal>
+      </ReportOptions>
+    </Header>
+    <Details>
+      <Detail type="data">
+      	<PaymentMode>CHEQUE</PaymentMode>
+		<RefNo>RECEIPT 00751</RefNo>
+		<Date>20/01/2015</Date>
+		<Amount>249.32</Amount>
+      </Detail>
+      <Detail type="total">
+        <Amount>249.32</Amount>
+      </Detail>
+    </Details>
+  </Document>
+</Documents>

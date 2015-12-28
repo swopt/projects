@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="AP Journal Voucher.xslt"?>
+<Documents>
+  <Document>
+    <Header>
+      <OrgnDetails>
+        <OrgnName>BAU PALM OIL MILL SDN. BHD</OrgnName>
+        <OrgnRegNo>469819-X</OrgnRegNo>
+        <Address1>KM 25, Bau-Lundu Road</Address1>
+        <Address2>P.O. Box 181, Bau</Address2>
+        <Address3>94007 Malaysia</Address3>
+        <ContactNo1>082-370425</ContactNo1>
+        <ContactNo2>082-375230</ContactNo2>
+        <FaxNo1>019-8542154</FaxNo1>
+      </OrgnDetails>
+      <ReportOptions>
+        <AccountNo>A0011</AccountNo>
+        <AccountName>ATAREK KAMIL IBRAHIM TAX SERVICES (M) SDN. BHD.</AccountName>
+        <DocDescription>Voided &lt;BAPOM/IP/2015/11/00001&gt;&lt;04/11/2015&gt;</DocDescription>
+        <VoucherNo>BAPOM/JP/2015/11/00003</VoucherNo>
+        <VoucherDate>04/11/2015</VoucherDate>
+        <ReferenceNo></ReferenceNo>
+        <CurrencyCode>MYR</CurrencyCode>
+      </ReportOptions>
+    </Header>
+    <Details>
+      <Detail type="data">
+        <Particulars>bil 001-a</Particulars>
+        <AmountDebit>46.27</AmountDebit>
+        <AmountCredit></AmountCredit>
+      </Detail>
+      <Detail type="data">
+        <Particulars>bil 002-cgh</Particulars>
+        <AmountDebit>56.49</AmountDebit>
+        <AmountCredit></AmountCredit>
+      </Detail>
+      <Detail type="data">
+        <Particulars>bil 001-c + 002-g + 002-h</Particulars>
+        <AmountDebit></AmountDebit>
+        <AmountCredit></AmountCredit>
+      </Detail>
+      <Detail type="data">
+        <Particulars>bil 003-x</Particulars>
+        <AmountDebit>87.49</AmountDebit>
+        <AmountCredit></AmountCredit>
+      </Detail>
+      <Detail type="total">
+        <AmountDebit>190.25</AmountDebit>
+        <AmountCredit></AmountCredit>
+      </Detail>
+    </Details>
+  </Document>
+</Documents>
+

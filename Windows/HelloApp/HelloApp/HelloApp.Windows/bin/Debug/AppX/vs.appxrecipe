@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>SOPC20-ERIC</Machine>
+    <WindowsUser>eric</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetOsVersion>6.3</TargetOsVersion>
+    <TargetOsDescription>Windows 8.1</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>541113db-c4cf-4585-a80e-71be4a21847b</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\Eric.SODC16\Documents\projects\Windows\HelloApp\HelloApp\HelloApp.Windows\obj\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>E1889BB065503452F2AFE9ABEF51381B9B265738A03876D8BB923A06204A52EE</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>541113db-c4cf-4585-a80e-71be4a21847b_1.0.0.0_neutral__hwsf2pzn5jgew</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>541113db-c4cf-4585-a80e-71be4a21847b_hwsf2pzn5jgew!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>541113db-c4cf-4585-a80e-71be4a21847b</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=eric</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Eric.SODC16\Documents\projects\Windows\HelloApp\HelloApp\HelloApp.Windows\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-12-15T06:48:05.935</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Eric.SODC16\Documents\projects\Windows\HelloApp\HelloApp\HelloApp.Windows\bin\Debug\HelloApp.Windows.exe">
+      <PackagePath>HelloApp.Windows.exe</PackagePath>
+      <Modified>2015-12-15T07:53:38.167</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eric.SODC16\Documents\projects\Windows\HelloApp\HelloApp\HelloApp.Windows\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-06T14:01:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eric.SODC16\Documents\projects\Windows\HelloApp\HelloApp\HelloApp.Windows\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-06T14:01:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eric.SODC16\Documents\projects\Windows\HelloApp\HelloApp\HelloApp.Windows\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-06T14:01:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eric.SODC16\Documents\projects\Windows\HelloApp\HelloApp\HelloApp.Windows\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-06T14:01:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eric.SODC16\Documents\projects\Windows\HelloApp\HelloApp\HelloApp.Windows\bin\Debug\HelloApp.Windows.xr.xml">
+      <PackagePath>HelloApp.Windows.xr.xml</PackagePath>
+      <Modified>2015-12-15T07:28:54.783</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eric.SODC16\Documents\projects\Windows\HelloApp\HelloApp\HelloApp.Windows\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2015-12-15T06:47:55.848</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eric.SODC16\Documents\projects\Windows\HelloApp\HelloApp\HelloApp.Windows\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2015-12-15T07:53:37.857</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eric.SODC16\Documents\projects\Windows\HelloApp\HelloApp\HelloApp.Windows\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2015-12-15T06:48:03.665</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

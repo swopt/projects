@@ -1,0 +1,1 @@
+C:\Users\Eric.SODC16\Documents\projects\Windows\HelloApp\HelloApp\HelloApp.Windows\HelloApp.Windows.csproj;neutral

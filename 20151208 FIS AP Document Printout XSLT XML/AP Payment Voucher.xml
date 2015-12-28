@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="AP Payment Voucher.xsl"?>
+<Documents>
+  <Document>
+    <Header>
+      <OrgnDetails>
+        <OrgnName>BAU PALM OIL MILL SDN. BHD.</OrgnName>
+        <OrgnRegNo>469819-X</OrgnRegNo>
+        <Address1>KM 25, Bau-Lundu Road</Address1>
+        <Address2>P.O. Box 181, Bau</Address2>
+        <Address3>94007 Malaysia</Address3>
+        <ContactNo1>082-370425</ContactNo1>
+        <ContactNo2>082-375230</ContactNo2>
+        <FaxNo1>019-8542154</FaxNo1>
+      </OrgnDetails>
+      <ReportOptions>
+        <DocRefNo>BAPOM/PP/2015/01/00010</DocRefNo>
+        <DocDate>08/01/2015</DocDate>
+        <PaymentTo>GLOBAL GREEN ENGINEERING &amp; SUPPLY SDN. BHD.</PaymentTo>
+        <PaymentDescription>BEING PAYMENT FOR INV. GGES/BAPOM/034 VIDE S.O 001050</PaymentDescription>
+        <AmountDescription>Four Thousand Nine Hundred Fifty</AmountDescription>
+        <AccountName>GLOBAL GREEN ENGINEERING &amp; SUPPLY SDN. BHD.</AccountName>
+        <CurrencyCode>MYR</CurrencyCode>
+        <AmountTotal>4950</AmountTotal>
+      </ReportOptions>
+    </Header>
+    <Details>
+      <Detail type="bank">
+      	<BankAccount>Maybank, Bau</BankAccount>
+        <PaymentMode>CHEQUE</PaymentMode>
+		<PaymentRefNo>MBB 020308</PaymentRefNo>
+		<TransactionDate>08/01/2015</TransactionDate>
+		<Amount>4950</Amount>
+      </Detail>
+      <Detail type="bankTotal">
+        <Amount>4950</Amount>
+      </Detail>
+      <Detail type="payFor">
+      	<DocRef>GGES/BAPOM/034 GLOBAL</DocRef>
+        <Date>31/12/2014</Date>
+        <PaymentDescription>SUPPLY LABOUR TO PERFORM CALIBRATION &amp; TESTING OF SMOKE DENSITY METER &amp; 2 PC LENS</PaymentDescription>
+		<Amount>4950</Amount>
+      </Detail>
+      <Detail type="payForTotal">
+        <Amount>4950</Amount>
+      </Detail>
+      <Detail type="glPosting">
+      	<AccountNo>64001-16-16130</AccountNo>
+        <AccountName>MBB A/C NO. 561163008386</AccountName>
+        <AmountDebit></AmountDebit>
+		<AmountCredit>4950</AmountCredit>
+      </Detail>
+      <Detail type="glPosting">
+      	<AccountNo>64003-30-30000</AccountNo>
+        <AccountName>Account Payable Trade</AccountName>
+        <AmountDebit>4950</AmountDebit>
+		<AmountCredit></AmountCredit>
+      </Detail>
+      <Detail type="glPostingTotal">
+        <AmountDebit>4950</AmountDebit>
+        <AmountCredit>4950</AmountCredit>
+      </Detail>
+    </Details>
+  </Document>
+</Documents>
+
