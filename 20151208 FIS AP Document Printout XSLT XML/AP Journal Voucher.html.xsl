@@ -12,6 +12,7 @@
             table {border-collapse:collapse;width:100%}
             th {border:1px solid black;border-style:solid none solid none;text-align:left}
             .bold {font-weight:bold}
+            .alignTop {vertical-align:top}
             .smallText {font-size:smaller}
           </style>
         </head>
@@ -54,15 +55,15 @@
       <td colspan="100%" class="smallText">
         <table>
           <tbody>
-            <tr>
+            <tr class="alignTop">
               <td class="bold">Account No.</td><td>:</td><td><xsl:value-of select="AccountNo"/></td>
               <td class="bold">Voucher No.</td><td>:</td><td><xsl:value-of select="VoucherNo"/></td>
             </tr>
-            <tr>
+            <tr class="alignTop">
               <td class="bold">Account Name</td><td>:</td><td><xsl:value-of select="AccountName"/></td>
               <td class="bold">Voucher Date</td><td>:</td><td><xsl:value-of select="VoucherDate"/></td>
             </tr>
-            <tr>
+            <tr class="alignTop">
               <td class="bold">Description</td><td>:</td><td><xsl:value-of select="DocDescription"/></td>
               <td class="bold">Reference No.</td><td>:</td><td><xsl:value-of select="ReferenceNo"/></td>
             </tr>
@@ -87,4 +88,5 @@
     </tr>
   </xsl:template>
 </xsl:stylesheet>
+
 
