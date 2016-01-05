@@ -24,14 +24,14 @@
 	<xsl:attribute name="text-align">center</xsl:attribute>
 </xsl:attribute-set>
 <xsl:attribute-set name="header">
-	<xsl:attribute name="font-family">Times New Roman</xsl:attribute>
+	<xsl:attribute name="font-family">Courier New</xsl:attribute>
 	<xsl:attribute name="font-weight">bold</xsl:attribute>
 </xsl:attribute-set>
 <xsl:attribute-set name="header-xsmall" use-attribute-sets="header">
 	<xsl:attribute name="font-size">11pt</xsl:attribute>
 </xsl:attribute-set>
 <xsl:attribute-set name="text">
-	<xsl:attribute name="font-family">Times New Roman</xsl:attribute>
+	<xsl:attribute name="font-family">Courier New</xsl:attribute>
 </xsl:attribute-set>
 <xsl:attribute-set name="text-center" use-attribute-sets="text">
 	<xsl:attribute name="text-align">center</xsl:attribute>
@@ -102,10 +102,9 @@
 			
 		 	<xsl:element name="fo:static-content">
 				<xsl:attribute name="flow-name">xsl-region-before</xsl:attribute>
-				<fo:block-container height="7cm">
+				<fo:block-container height="9cm">
 					<xsl:apply-templates select="Header"/> 
 				</fo:block-container>
-				<xsl:call-template name="tableHeader"/>
 			</xsl:element>
 			
 			 <xsl:element name="fo:static-content">
@@ -156,11 +155,11 @@
 
 <xsl:template match="Header">
 
-	<xsl:element name="fo:table">
+	<xsl:element name="fo:table" use-attribute-sets="text">
   	<xsl:element name="fo:table-column"/>
-	<xsl:element name="fo:table-body">
+	<fo:table-body>
 	<xsl:element name="fo:table-row">
-	<xsl:element name="fo:table-cell">
+	<fo:table-cell>
 		
 		 <xsl:element name="fo:block" use-attribute-sets="header-large-center"><xsl:value-of select="OrgnDetails/OrgnName"/></xsl:element>
 		 <xsl:element name="fo:block" use-attribute-sets="text-xsmall-center">(<xsl:value-of select="OrgnDetails/OrgnRegNo"/>)</xsl:element>
@@ -169,90 +168,65 @@
 		 <xsl:element name="fo:block" use-attribute-sets="text-center"><xsl:value-of select="OrgnDetails/Address3"/></xsl:element>
 		 <xsl:element name="fo:block" use-attribute-sets="text-center">Tel:<xsl:value-of select="OrgnDetails/OrgnRegNo"/>/<xsl:value-of select="OrgnDetails/ContactNo2"/>&#160;Fax:<xsl:value-of select="OrgnDetails/FaxNo1"/></xsl:element>
 		<xsl:element name="fo:block"/>
-		<xsl:element name="fo:block" use-attribute-sets="header-center">Accounts Payable</xsl:element>
-		<xsl:element name="fo:block" use-attribute-sets="header-xlarge-center">Journal Voucher</xsl:element>
-		<xsl:element name="fo:table">
-			<xsl:element name="fo:table-column"><xsl:attribute name="column-width">14%</xsl:attribute></xsl:element>
-			<xsl:element name="fo:table-column"><xsl:attribute name="column-width">1%</xsl:attribute></xsl:element>
-			<xsl:element name="fo:table-column"><xsl:attribute name="column-width">35%</xsl:attribute></xsl:element>
-			<xsl:element name="fo:table-column"><xsl:attribute name="column-width">14%</xsl:attribute></xsl:element>
-			<xsl:element name="fo:table-column"><xsl:attribute name="column-width">1%</xsl:attribute></xsl:element>
-			<xsl:element name="fo:table-column"><xsl:attribute name="column-width">35%</xsl:attribute></xsl:element>
-	
-			<xsl:element name="fo:table-body">
-				<xsl:element name="fo:table-row">
-					<xsl:element name="fo:table-cell" use-attribute-sets="header"><xsl:element name="fo:block">Account No.</xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell"><xsl:element name="fo:block">:</xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell"><xsl:element name="fo:block"><xsl:value-of select="ReportOptions/AccountNo"/></xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell" use-attribute-sets="header"><xsl:element name="fo:block">Voucher No.</xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell"><xsl:element name="fo:block">:</xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell"><xsl:element name="fo:block"><xsl:value-of select="ReportOptions/VoucherNo"/></xsl:element></xsl:element>
-				</xsl:element>
-				<xsl:element name="fo:table-row">
-					<xsl:element name="fo:table-cell" use-attribute-sets="header"><xsl:element name="fo:block">Account Name</xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell"><xsl:element name="fo:block">:</xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell"><xsl:element name="fo:block"><xsl:value-of select="ReportOptions/Accountname"/></xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell" use-attribute-sets="header"><xsl:element name="fo:block">Voucher Date</xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell"><xsl:element name="fo:block">:</xsl:element></xsl:element>
-				</xsl:element>
-				<xsl:element name="fo:table-row">
-					<xsl:element name="fo:table-cell" use-attribute-sets="header"><xsl:element name="fo:block">Description</xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell"><xsl:element name="fo:block">:</xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell"><xsl:element name="fo:block"><xsl:value-of select="ReportOptions/DocDescription"/></xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell" use-attribute-sets="header"><xsl:element name="fo:block">Reference No.</xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell"><xsl:element name="fo:block">:</xsl:element></xsl:element>
-					<xsl:element name="fo:table-cell"><xsl:element name="fo:block"><xsl:value-of select="ReportOptions/ReferenceNo"/></xsl:element></xsl:element>
-				</xsl:element>
-			</xsl:element>
+		<fo:block>&#160;</fo:block>
+		<xsl:element name="fo:block" use-attribute-sets="header-center">PAYMENT VOUCHER</xsl:element>
+		<xsl:element name="fo:block" use-attribute-sets="text">
+			<xsl:attribute name="margin-left">5cm</xsl:attribute>
+			<fo:table>
+				<fo:table-column column-width="2cm"/><fo:table-column/>
+				<fo:table-body>
+					<fo:table-row>
+						<fo:table-cell><fo:block>PV&#160;No.</fo:block></fo:table-cell>
+						<fo:table-cell><fo:block>: <xsl:value-of select="ReportOptions/DocRefNo"/></fo:block></fo:table-cell>
+					</fo:table-row>
+					<fo:table-row>
+						<fo:table-cell><fo:block>Date</fo:block></fo:table-cell>
+						<fo:table-cell><fo:block>: <xsl:value-of select="ReportOptions/DocDate"/></fo:block></fo:table-cell>
+					</fo:table-row>
+				</fo:table-body>
+			</fo:table>
 		</xsl:element>
+	</fo:table-cell>
 	</xsl:element>
-	</xsl:element>
-	</xsl:element>
+	<fo:table-row>
+		<fo:table-cell>
+			<fo:block>
+				<fo:table>
+					<fo:table-column column-width="15%"/>
+					<fo:table-column column-width="5mm"/>
+					<fo:table-column/>
+					<fo:table-body>
+						<fo:table-row>
+							<fo:table-cell font-weight="bold"><fo:block>Pay to</fo:block></fo:table-cell>
+							<fo:table-cell font-weight="bold"><fo:block>:</fo:block></fo:table-cell>
+							<fo:table-cell border-bottom="solid"><fo:block><xsl:value-of select="ReportOptions/PaymentTo"/></fo:block></fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell font-weight="bold"><fo:block><xsl:value-of select="ReportOptions/CurrencyCode"/></fo:block></fo:table-cell>
+							<fo:table-cell font-weight="bold"><fo:block>:</fo:block></fo:table-cell>
+							<fo:table-cell border-bottom="solid"><fo:block><xsl:value-of select="ReportOptions/AmountDescription"/></fo:block></fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell font-weight="bold"><fo:block>Account</fo:block></fo:table-cell>
+							<fo:table-cell font-weight="bold"><fo:block>:</fo:block></fo:table-cell>
+							<fo:table-cell border-bottom="solid"><fo:block><xsl:value-of select="ReportOptions/PaymentTo"/></fo:block></fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+			</fo:block>
+		</fo:table-cell>
+	</fo:table-row>
+	<fo:table-row>
+		<fo:table-cell>
+			<fo:block border-top="solid" border-bottom="solid" font-weight="bold" margin-top="3mm">Description of Payment</fo:block>
+			<fo:block margin-top="2mm" margin-bottom="2mm"><xsl:value-of select="ReportOptions/PaymentDescription"/></fo:block>
+		</fo:table-cell>
+	</fo:table-row>
+	</fo:table-body>
 	</xsl:element>
 	
 </xsl:template>
-
-<xsl:template name="tableHeader">
-	<fo:block font-size="10.3pt">
-	<fo:table>
-	<xsl:element name="fo:table-column"><xsl:attribute name="column-width">10%</xsl:attribute></xsl:element>
-	<xsl:element name="fo:table-column"><xsl:attribute name="column-width">60%</xsl:attribute></xsl:element>
-	<xsl:element name="fo:table-column"><xsl:attribute name="column-width">15%</xsl:attribute></xsl:element>
-	<xsl:element name="fo:table-column"><xsl:attribute name="column-width">15%</xsl:attribute></xsl:element>
-	
-	<xsl:element name="fo:table-body">
-    <xsl:element name="fo:table-row">
-		<xsl:attribute name="border-top">solid</xsl:attribute>
-		<xsl:attribute name="border-bottom">solid</xsl:attribute>
-		<xsl:element name="fo:table-cell">
-			<xsl:element name="fo:block" use-attribute-sets="text-xsmall-bold">
-				No.
-			</xsl:element>
-		</xsl:element>
-		<xsl:element name="fo:table-cell">
-			<xsl:element name="fo:block" use-attribute-sets="text-xsmall-bold">
-				Particulars
-			</xsl:element>
-		</xsl:element>
-		<xsl:element name="fo:table-cell">
-			<xsl:attribute name="text-align">right</xsl:attribute>
-			<xsl:element name="fo:block" use-attribute-sets="text-xsmall-bold">
-				Debit (MYR)
-			</xsl:element>
-		</xsl:element>
-		<xsl:element name="fo:table-cell">
-			<xsl:attribute name="text-align">right</xsl:attribute>
-			<xsl:element name="fo:block" use-attribute-sets="text-xsmall-bold">
-				Credit (MYR)
-			</xsl:element>
-		</xsl:element>
-			
-	</xsl:element>
-	</xsl:element>
-	</fo:table>
-	</fo:block>
-</xsl:template>
-<xsl:template match="Detail">
+<xsl:template match="Detail[@type='bank']">
 	<xsl:element name="fo:table-row" use-attribute-sets="text-xsmall">
 		<xsl:element name="fo:table-cell">
 			<xsl:element name="fo:block">
@@ -281,7 +255,7 @@
 		</xsl:element>
 	</xsl:element>
 </xsl:template>
-<xsl:template match="Detail[@type='total']">
+<xsl:template match="Detail[@type='bankTotal']">
 	<xsl:element name="fo:table-row" use-attribute-sets="header-xsmall">
 		<xsl:element name="fo:table-cell">
 			<xsl:attribute name="number-columns-spanned">2</xsl:attribute>
