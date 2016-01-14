@@ -77,7 +77,7 @@
 					
 					
 					<xsl:element name="fo:region-body">
-						<xsl:attribute name="margin-top">8cm</xsl:attribute>
+						<xsl:attribute name="margin-top">8.5cm</xsl:attribute>
 						<xsl:attribute name="margin-bottom">3cm</xsl:attribute>
 						<xsl:attribute name="extent">17cm</xsl:attribute>
 					</xsl:element>
@@ -85,7 +85,7 @@
 						<xsl:attribute name="extent">11.3cm</xsl:attribute>
 					</xsl:element>
 					<xsl:element name="fo:region-after">
-						<xsl:attribute name="extent">2cm</xsl:attribute>
+						<xsl:attribute name="extent">4cm</xsl:attribute>
 					</xsl:element>
 					<xsl:element name="fo:region-start">
 						<xsl:attribute name="extent">0cm</xsl:attribute>
@@ -107,17 +107,16 @@
 				</fo:block-container>
 			</xsl:element>
 			
-			 <xsl:element name="fo:static-content">
+			 <xsl:element name="fo:static-content" use-attribute-sets="text">
 				<xsl:attribute name="flow-name">xsl-region-after</xsl:attribute>
 					<fo:table>	
-						<fo:table-column/>
-						<fo:table-column/>
-						<fo:table-column/>
+						<fo:table-column/><fo:table-column/><fo:table-column/><fo:table-column column-width="37%"/>
 						<fo:table-body>
 							<fo:table-row>
-								<fo:table-cell><fo:block margin-left="5mm" margin-right="5mm" border-bottom="solid"/><fo:block text-align="center">Checked By/Date</fo:block></fo:table-cell>
+								<xsl:call-template name="signBox"><xsl:with-param name="msgVal">Prepared by: Mill Manager</xsl:with-param></xsl:call-template>
+								<xsl:call-template name="signBox"><xsl:with-param name="msgVal">Checked by:</xsl:with-param></xsl:call-template>
+								<xsl:call-template name="signBox"><xsl:with-param name="msgVal">Approved by:</xsl:with-param></xsl:call-template>
 								<fo:table-cell><fo:block margin-left="5mm" margin-right="5mm" border-bottom="solid"/><fo:block text-align="center">Approved By/Date</fo:block></fo:table-cell>
-								<fo:table-cell><fo:block margin-left="5mm" margin-right="5mm" border-bottom="solid"/><fo:block text-align="center">Authorised By/Date</fo:block></fo:table-cell>
 							</fo:table-row>
 						</fo:table-body>
 					</fo:table>
@@ -132,14 +131,60 @@
 				
 				<xsl:attribute name="flow-name">xsl-region-body</xsl:attribute>
 				<xsl:element name="fo:table">
-				  	<xsl:element name="fo:table-column"><xsl:attribute name="column-width">10%</xsl:attribute></xsl:element>
-					<xsl:element name="fo:table-column"><xsl:attribute name="column-width">60%</xsl:attribute></xsl:element>
-					<xsl:element name="fo:table-column"><xsl:attribute name="column-width">15%</xsl:attribute></xsl:element>
-					<xsl:element name="fo:table-column"><xsl:attribute name="column-width">15%</xsl:attribute></xsl:element>
-					
-					<xsl:element name="fo:table-body">
-						<xsl:apply-templates select="Details/Detail[@type!='total']"/>
-						<xsl:apply-templates select="Details/Detail[@type='total']"/> 
+				  	<fo:table-column/>
+					<xsl:element name="fo:table-body" use-attribute-sets="text">
+						<fo:table-row><fo:table-cell><fo:block>
+							<fo:table>
+								<fo:table-column/><fo:table-column/><fo:table-column/><fo:table-column/><fo:table-column/>
+								<fo:table-body>
+									<fo:table-row font-weight="bold" border-top="solid" border-bottom="solid">
+										<fo:table-cell><fo:block>Bank Account</fo:block></fo:table-cell>
+										<fo:table-cell><fo:block>Payment Type</fo:block></fo:table-cell>
+										<fo:table-cell><fo:block>Cheque/Ref No.</fo:block></fo:table-cell>
+										<fo:table-cell><fo:block>Transact Date</fo:block></fo:table-cell>
+										<fo:table-cell><fo:block>Amount (<xsl:value-of select="//CurrencyCode"/>)</fo:block></fo:table-cell>
+									</fo:table-row>
+									<xsl:apply-templates select="Details/Detail[@type='bank']"/>
+									<xsl:apply-templates select="Details/Detail[@type='bankTotal']"/>
+								</fo:table-body>
+							</fo:table>
+						</fo:block></fo:table-cell></fo:table-row>
+						
+						<fo:table-row><fo:table-cell><fo:block font-weight="bold" margin-top="5mm">Pay for</fo:block></fo:table-cell></fo:table-row>
+						<fo:table-row><fo:table-cell><fo:block>
+							<fo:table>
+								<fo:table-column column-width="13%"/><fo:table-column column-width="14%"/>
+								<fo:table-column column-width="56%"/><fo:table-column column-width="17%"/>
+								<fo:table-body>
+									<fo:table-row font-weight="bold" border-top="solid" border-bottom="solid">
+										<fo:table-cell><fo:block>Doc. Ref.</fo:block></fo:table-cell>
+										<fo:table-cell><fo:block>Date</fo:block></fo:table-cell>
+										<fo:table-cell><fo:block>Particulars</fo:block></fo:table-cell>
+										<fo:table-cell><fo:block>Amount (<xsl:value-of select="//CurrencyCode"/>)</fo:block></fo:table-cell>
+									</fo:table-row>
+									<xsl:apply-templates select="Details/Detail[@type='payFor']"/>
+									<xsl:apply-templates select="Details/Detail[@type='payForTotal']"/>
+								</fo:table-body>
+							</fo:table>	
+						</fo:block></fo:table-cell></fo:table-row>
+						
+						<fo:table-row><fo:table-cell><fo:block font-weight="bold" margin-top="5mm">GL Posting</fo:block></fo:table-cell></fo:table-row>
+						<fo:table-row><fo:table-cell><fo:block>
+							<fo:table>
+								<fo:table-column column-width="20%"/><fo:table-column column-width="46%"/>
+								<fo:table-column column-width="17%"/><fo:table-column column-width="17%"/>
+								<fo:table-body>
+									<fo:table-row font-weight="bold" border-top="solid" border-bottom="solid">
+										<fo:table-cell><fo:block>Account No.</fo:block></fo:table-cell>
+										<fo:table-cell><fo:block>Account Name</fo:block></fo:table-cell>
+										<fo:table-cell text-align="right"><fo:block>Debit</fo:block></fo:table-cell>
+										<fo:table-cell text-align="right"><fo:block>Credit</fo:block></fo:table-cell>
+									</fo:table-row>
+									<xsl:apply-templates select="Details/Detail[@type='glPosting']"/>
+									<xsl:apply-templates select="Details/Detail[@type='glPostingTotal']"/>
+								</fo:table-body>
+							</fo:table>	
+						</fo:block></fo:table-cell></fo:table-row>
 				    </xsl:element>
 				</xsl:element>
 				<xsl:element name="fo:block">
@@ -176,11 +221,11 @@
 				<fo:table-column column-width="2cm"/><fo:table-column/>
 				<fo:table-body>
 					<fo:table-row>
-						<fo:table-cell><fo:block>PV&#160;No.</fo:block></fo:table-cell>
+						<fo:table-cell><fo:block font-weight="bold">PV&#160;No.</fo:block></fo:table-cell>
 						<fo:table-cell><fo:block>: <xsl:value-of select="ReportOptions/DocRefNo"/></fo:block></fo:table-cell>
 					</fo:table-row>
 					<fo:table-row>
-						<fo:table-cell><fo:block>Date</fo:block></fo:table-cell>
+						<fo:table-cell><fo:block font-weight="bold">Date</fo:block></fo:table-cell>
 						<fo:table-cell><fo:block>: <xsl:value-of select="ReportOptions/DocDate"/></fo:block></fo:table-cell>
 					</fo:table-row>
 				</fo:table-body>
@@ -219,7 +264,7 @@
 	<fo:table-row>
 		<fo:table-cell>
 			<fo:block border-top="solid" border-bottom="solid" font-weight="bold" margin-top="3mm">Description of Payment</fo:block>
-			<fo:block margin-top="2mm" margin-bottom="2mm"><xsl:value-of select="ReportOptions/PaymentDescription"/></fo:block>
+			<fo:block margin-top="1mm" margin-bottom="2mm"><xsl:value-of select="ReportOptions/PaymentDescription"/></fo:block>
 		</fo:table-cell>
 	</fo:table-row>
 	</fo:table-body>
@@ -227,56 +272,65 @@
 	
 </xsl:template>
 <xsl:template match="Detail[@type='bank']">
-	<xsl:element name="fo:table-row" use-attribute-sets="text-xsmall">
-		<xsl:element name="fo:table-cell">
-			<xsl:element name="fo:block">
-				<xsl:value-of select="position()"/>
-			</xsl:element>
-		</xsl:element>
-
-		<xsl:element name="fo:table-cell">
-			<xsl:element name="fo:block">
-				<xsl:value-of select="Particulars"/>
-			</xsl:element>
-		</xsl:element>
-
-		<xsl:element name="fo:table-cell">
-			<xsl:attribute name="text-align">right</xsl:attribute>
-			<xsl:element name="fo:block">
-				<xsl:if test="AmountDebit != ''"><xsl:value-of select="format-number(AmountDebit,'#,##0.00')"/></xsl:if> 
-			</xsl:element>
-		</xsl:element>
-
-		<xsl:element name="fo:table-cell">
-			<xsl:attribute name="text-align">right</xsl:attribute>
-			<xsl:element name="fo:block">
-				<xsl:if test="AmountCredit != ''"><xsl:value-of select="format-number(AmountCredit,'#,##0.00')"/></xsl:if>
-			</xsl:element>
-		</xsl:element>
+	<xsl:element name="fo:table-row">
+		<fo:table-cell><fo:block><xsl:value-of select="BankAccount"/></fo:block></fo:table-cell>
+		<fo:table-cell><fo:block><xsl:value-of select="PaymentMode"/></fo:block></fo:table-cell>
+		<fo:table-cell><fo:block><xsl:value-of select="PaymentRefNo"/></fo:block></fo:table-cell>
+		<fo:table-cell><fo:block><xsl:value-of select="TransactionDate"/></fo:block></fo:table-cell>
+		<fo:table-cell text-align="right"><fo:block><xsl:value-of select="format-number(Amount,'#,##0.00')"/></fo:block></fo:table-cell>
 	</xsl:element>
 </xsl:template>
 <xsl:template match="Detail[@type='bankTotal']">
-	<xsl:element name="fo:table-row" use-attribute-sets="header-xsmall">
-		<xsl:element name="fo:table-cell">
-			<xsl:attribute name="number-columns-spanned">2</xsl:attribute>
-			<xsl:attribute name="text-align">right</xsl:attribute>
-			<xsl:element name="fo:block">Total</xsl:element>
-		</xsl:element>
-
-		<xsl:element name="fo:table-cell">
-			<xsl:attribute name="text-align">right</xsl:attribute>
-			<xsl:element name="fo:block">
-				<xsl:if test="AmountDebit != ''"><xsl:value-of select="format-number(AmountDebit,'#,##0.00')"/></xsl:if> 
-			</xsl:element>
-		</xsl:element>
-
-		<xsl:element name="fo:table-cell">
-			<xsl:attribute name="text-align">right</xsl:attribute>
-			<xsl:element name="fo:block">
-				<xsl:if test="AmountCredit != ''"><xsl:value-of select="format-number(AmountCredit,'#,##0.00')"/></xsl:if>
-			</xsl:element>
-		</xsl:element>
+	<xsl:element name="fo:table-row" use-attribute-sets="header">
+		<fo:table-cell number-columns-spanned="4" text-align="right"><fo:block>TOTAL :</fo:block></fo:table-cell>
+		<fo:table-cell text-align="right"><fo:block><xsl:value-of select="format-number(Amount,'#,##0.00')"/></fo:block></fo:table-cell>
 	</xsl:element>
+</xsl:template>
+<xsl:template match="Detail[@type='payFor']">
+	<fo:table-row>
+		<fo:table-cell><fo:block><xsl:value-of select="DocRef"/></fo:block></fo:table-cell>
+		<fo:table-cell><fo:block><xsl:value-of select="Date"/></fo:block></fo:table-cell>
+		<fo:table-cell><fo:block><xsl:value-of select="PaymentDescription"/></fo:block></fo:table-cell>
+		<fo:table-cell text-align="right"><fo:block><xsl:value-of select="format-number(Amount,'#,##0.00')"/></fo:block></fo:table-cell>
+	</fo:table-row>
+</xsl:template>
+<xsl:template match="Detail[@type='payForTotal']">
+	<xsl:element name="fo:table-row" use-attribute-sets="header">
+		<fo:table-cell number-columns-spanned="3" text-align="right"><fo:block>TOTAL :</fo:block></fo:table-cell>
+		<fo:table-cell text-align="right"><fo:block><xsl:value-of select="format-number(Amount,'#,##0.00')"/></fo:block></fo:table-cell>
+	</xsl:element>
+</xsl:template>
+<xsl:template match="Detail[@type='glPosting']">
+	<fo:table-row>
+		<fo:table-cell><fo:block><xsl:value-of select="AccountNo"/></fo:block></fo:table-cell>
+		<fo:table-cell><fo:block><xsl:value-of select="AccountName"/></fo:block></fo:table-cell>
+		<fo:table-cell text-align="right"><fo:block><xsl:if test="AmountDebit!=''"><xsl:value-of select="format-number(AmountDebit,'#,##0.00')"/></xsl:if></fo:block></fo:table-cell>
+		<fo:table-cell text-align="right"><fo:block><xsl:if test="AmountCredit!=''"><xsl:value-of select="format-number(AmountCredit,'#,##0.00')"/></xsl:if></fo:block></fo:table-cell>
+	</fo:table-row>
+</xsl:template>
+<xsl:template match="Detail[@type='glPostingTotal']">
+	<xsl:element name="fo:table-row" use-attribute-sets="header">
+		<fo:table-cell number-columns-spanned="2" text-align="right"><fo:block>TOTAL :</fo:block></fo:table-cell>
+		<fo:table-cell text-align="right"><fo:block><xsl:if test="AmountDebit!=''"><xsl:value-of select="format-number(AmountDebit,'#,##0.00')"/></xsl:if></fo:block></fo:table-cell>
+		<fo:table-cell text-align="right"><fo:block><xsl:if test="AmountCredit!=''"><xsl:value-of select="format-number(AmountCredit,'#,##0.00')"/></xsl:if></fo:block></fo:table-cell>
+	</xsl:element>
+</xsl:template>
+<xsl:template name="signBox">
+	<xsl:param name="msgVal"/>
+	
+	<fo:table-cell border="solid" height="3.5cm" margin="1mm">
+	<fo:block text-align="center" vertical-align="top"><xsl:value-of select="$msgVal"/></fo:block>
+	<fo:block height="100%" margin-top="1.8cm" display-align="after">
+		<fo:table>
+			<fo:table-column column-width="30%"/><fo:table-column column-width="70%"/>
+			<fo:table-body>
+				<fo:table-row>
+					<fo:table-cell><fo:block>Date:</fo:block></fo:table-cell>
+					<fo:table-cell border-bottom="solid"><fo:block/></fo:table-cell>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>
+	</fo:block></fo:table-cell>
 </xsl:template>
 <xsl:template name="formatNumber">
 	<xsl:param name="val"/>
@@ -296,3 +350,4 @@
 	</xsl:choose>
 </xsl:template>
 </xsl:stylesheet>
+

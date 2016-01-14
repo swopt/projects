@@ -115,16 +115,20 @@
 	<xsl:template match="Detail[@type='glPosting']">
 		<tr>
 			<td><xsl:value-of select="AccountNo"/></td>
-			<td><xsl:value-of select="Accountname"/></td>
-			<td align="right"><xsl:value-of select="format-number(AmountDebit,'#,###.00')"/></td>
-			<td align="right"><xsl:value-of select="format-number(AmountCredit,'#,###.00')"/></td>
+			<td><xsl:value-of select="AccountName"/></td>
+			<td align="right"><xsl:if test="AmountDebit!=''"><xsl:value-of select="format-number(AmountDebit,'#,###.00')"/></xsl:if></td>
+			<td align="right"><xsl:if test="AmountCredit!=''"><xsl:value-of select="format-number(AmountCredit,'#,###.00')"/></xsl:if></td>
 		</tr>
 	</xsl:template>
 	<xsl:template match="Detail[@type='glPostingTotal']">
 		<tr>
 			<td colspan="2" class="bold" align="right">TOTAL :</td>
-			<td align="right"><xsl:value-of select="format-number(AmountDebit,'#,###.00')"/></td>
-			<td align="right"><xsl:value-of select="format-number(AmountCredit,'#,###.00')"/></td>
+			<td align="right"><xsl:if test="AmountDebit!=''"><xsl:value-of select="format-number(AmountDebit,'#,###.00')"/></xsl:if></td>
+			<td align="right"><xsl:if test="AmountCredit!=''"><xsl:value-of select="format-number(AmountCredit,'#,###.00')"/></xsl:if></td>
 		</tr>
 	</xsl:template>
 </xsl:stylesheet>
+
+
+
+
